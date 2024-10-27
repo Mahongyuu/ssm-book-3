@@ -1,0 +1,81 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title></title>
+<link rel="stylesheet" href="/css/pintuer.css">
+<link rel="stylesheet" href="/css/admin.css">
+<script src="/js/jquery-2.1.0.js"></script>
+<script src="/js/pintuer.js"></script>
+</head>
+<body>
+<form  id="listform">
+  <div class="panel admin-panel">
+    <div class="panel-head"><strong class="icon-reorder"> 教师列表</strong> <a href="" style="float:right; display:none;">添加教师</a></div>
+    <div class="padding border-bottom">
+      <ul class="search" style="padding-left:10px;">
+        <li> <a class="button border-main icon-plus-square-o" href="add.html"> 添加教师</a> </li>
+        
+        <li>
+          <input id="iname"  type="text" placeholder="请输入教师名称" name="keywords" class="input" style="width:250px; line-height:17px;display:inline-block" />
+          <a href="javascript:void(0)" class="button border-main icon-search" onclick="namesearch()" > 搜索</a></li>
+      </ul>
+    </div>
+    <table id="teachertable" class="table table-hover text-center">
+		<tr><th width="10" style="text-align:left; padding-left:20px;">序号</th><th width="100" style="text-align:left; padding-left:20px;">教师编号</th><th>教师名称</th> <th>教授年级</th> <th>教授课程</th><th width="10%">教师简介</th> <th width="310">操作</th> </tr>
+        <tbody id="tb">
+
+        </tbody>
+    </table>
+     <tr>
+    	<td colspan="8">
+    		<div class="pagelist"> 
+    			<a id='first_page'  href="#">首页</a> 
+    			<a id='last_page'   href="#">上一页</a> 
+    		    <a id='next_page'   href="#">下一页</a>
+    		    <a id='end_page'    href="#">尾页</a>
+    		    <a id='jump_page'   href="#">跳转</a>
+    		    <input id="page_no" style="height: 20px;width:30px"/>
+    		    <input id="total_page"style="height: 20px;width:50px"  value="1 页"/>
+    		</div>
+    	</td>
+    </tr>
+    
+  </div>
+</form>
+</body>
+<script>
+    $(function () {
+        $.ajax({
+            type:'get',
+            url:'/bk/query',
+            success:function (res) {
+                console.log(res)
+                $.each(res,function (i,a) {
+                    $("#tb").append('<tr><td>'+(i+1)+'</td><td>'+a.name+'</td> <td>'+a.price+'</td> <td>'+a.publisher+'</td><td ><button onclick="del('+a.id+')">删除</button></td> </tr>');
+                })
+            }
+        })
+    })
+
+    function  del(e) {
+        $.ajax({
+            type: 'get',
+            url: '/bk/del',
+            data: {"id":e},
+            success:function (res) {
+
+                if(res == 1){
+                    window.location.href="/bk/query";
+                }else {
+                    alert("系统出现异常情联系管理员")
+                }
+            }
+        })
+    }
+
+</script>
+</html>

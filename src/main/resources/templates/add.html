@@ -1,0 +1,115 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+	
+<style type="text/css">
+    	#preview{
+width:100px;
+height:100px;
+margin:20px auto;
+cursor: pointer;
+}
+    </style>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="renderer" content="webkit">
+<title></title>
+<link rel="stylesheet" href="css/pintuer.css">
+<link rel="stylesheet" href="css/admin.css">
+<script src="js/jquery-2.1.0.js"></script>
+<script src="js/pintuer.js"></script>
+<script src="js/ajaxfileupload.js" type="text/javascript" charset="utf-8"></script>
+
+</head>
+<body>
+<div class="panel admin-panel">
+  <div class="panel-head" id="add"><strong><span class="icon-pencil-square-o"></span>增加教师</strong></div>
+  <div class="body-content">
+    <form class="form-x" >  
+     <div class="form-group">
+        <div class="label">
+          <label>教师编号：</label>
+        </div>
+        <div class="field">
+          <input  id="teachername" type="text" class="input w50" value="" name="title" data-validate="required:请输入教师名称" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="label">
+          <label>教师名称：</label>
+        </div>
+        <div class="field">
+          <input  id="teachername" type="text" class="input w50" value="" name="title" data-validate="required:请输入教师名称" />
+          <div class="tips"></div>
+        </div>
+      </div>
+      
+   
+          
+      
+        <div class="form-group">
+          <div class="label">
+            <label>所属年级：</label>
+          </div>
+          <div class="field">
+            <select  id="gidselect"  name="cid" class="input w50">
+                  <option value="">请选择</option>
+              <option value="1">小学一年级</option>
+            <option value="2">小学二年级</option>
+              <option value="3">小学三年级</option>
+                <option value="4">小学四年级</option>
+                  <option value="5">小学五年级</option>
+                    <option value="6">初中一年级</option>
+                      <option value="7">初中二年级</option>
+                        <option value="8">初中三年级</option>
+                          <option value="9">初中四年级</option>
+                            <option value="10">高中一年级</option>
+                             <option value="11">高中二年级</option>
+                              <option value="12">高中三年级</option>
+            </select>
+            <div class="tips"></div>
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <div class="label">
+            <label>所属课程：</label>
+          </div>
+          <div class="field">
+            <select id="smycourse"   class="input w50">
+            </select>
+            <div class="tips"></div>
+          </div>
+        </div>
+        
+         
+      <div class="form-group">
+        <div class="label">
+          <label>教师简介：</label>
+        </div>
+        <div class="field">
+          <textarea   id="teacherintro" class="input" name="note" style="height: 151px; width: 280px;"></textarea>
+          <div class="tips"></div>
+        </div>
+      </div>
+     
+      <div class="form-group">
+        <div class="label">
+          <label></label>
+        </div>
+        <div class="field">
+         <input  class="button bg-main icon-check-square-o"  style="text-align: center;"  type="button" name="back" value="确定提交" onclick=""/>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+</body>
+
+
+
+
+</html>
